@@ -3,7 +3,7 @@ require 'pry'
 
 #Helper method takes in an array of hashes (cart) and a value
 # corresponding to the item key and deletes the hash with the
-# value of the parameter: item. 
+# value of the parameter: item.
 def delete_item(item, cart)
   cart.length.times do |index|
     if cart[index][:item] == item
@@ -27,9 +27,11 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
+  cart.each do |item|
+    if item[:clearance]
+      item[:price] = item[:price] * .80.round(3)
+  end
+  cart
 end
 
 def checkout(cart, coupons)
