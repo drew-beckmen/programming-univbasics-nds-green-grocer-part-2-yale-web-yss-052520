@@ -3,7 +3,7 @@ require 'pry'
 
 #Helper method takes in an array of hashes (cart) and a value
 # corresponding to the item key and deletes the hash with the
-# value item. 
+# value of the parameter: item. 
 def delete_item(item, cart)
   cart.length.times do |index|
     if cart[index][:item] == item
