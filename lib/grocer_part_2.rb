@@ -51,6 +51,7 @@ def checkout(cart, coupons)
   final_cart.each do |item|
     grand_total += item[:count] * item[:price]
   end
+  binding.pry
   if grand_total > 100
     return grand_total * 0.9
   end
