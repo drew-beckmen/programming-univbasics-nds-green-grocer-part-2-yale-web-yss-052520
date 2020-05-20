@@ -11,7 +11,6 @@ def delete_item(item, cart)
 end
 
 def apply_coupons(cart, coupons)
-  binding.pry
   coupons.each do |coupon|
     find_item_by_name_in_collection(coupon[:item], cart)[:count] == coupon[:num] ?  delete_item(coupon[:item], cart) : find_item_by_name_in_collection(coupon[:item], cart)[:count] -= coupon[:num]
     cart << {
