@@ -7,8 +7,8 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     find_item_by_name_in_collection(coupon[:item], cart)[:count] -= coupon[:num]
     cart << {
-      item: coupon[:item].upcase + " W/COUPON", 
-      price: coupon[:cost] / coupon[:num], 
+      item: coupon[:item].upcase + " W/COUPON",
+      price: coupon[:cost] / coupon[:num],
       clearance: true,
       count: coupon[:num],
     }
