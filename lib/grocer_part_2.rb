@@ -15,7 +15,7 @@ end
 
 def apply_coupons(cart, coupons)
   coupons.each do |coupon|
-    if ind_item_by_name_in_collection(coupon[:item], cart)[:count] >= coupon[:num]
+    if find_item_by_name_in_collection(coupon[:item], cart)[:count] >= coupon[:num]
       find_item_by_name_in_collection(coupon[:item], cart)[:count] -= coupon[:num]
       cart << {
         item: coupon[:item].upcase + " W/COUPON",
