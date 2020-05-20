@@ -1,14 +1,14 @@
 require_relative './part_1_solution.rb'
 require 'pry'
 
-def delete_item(item, cart) 
+def delete_item(item, cart)
   cart.length.times do |index|
-    if cart[index][:item] == item 
+    if cart[index][:item] == item
       cart.delete_at(index)
-    end 
-  end 
+    end
+  end
   cart
-end 
+end
 
 def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
