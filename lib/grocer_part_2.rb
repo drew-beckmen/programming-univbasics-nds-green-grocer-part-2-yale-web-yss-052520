@@ -15,13 +15,15 @@ end
 
 def apply_coupons(cart, coupons)
   coupons.each do |coupon|
-    find_item_by_name_in_collection(coupon[:item], cart)[:count] -= coupon[:num]
-    cart << {
-      item: coupon[:item].upcase + " W/COUPON",
-      price: coupon[:cost] / coupon[:num],
-      clearance: find_item_by_name_in_collection(coupon[:item], cart)[:clearance],
-      count: coupon[:num]
+    if ind_item_by_name_in_collection(coupon[:item], cart)[:count] >= coupon[:num]
+      find_item_by_name_in_collection(coupon[:item], cart)[:count] -= coupon[:num]
+      cart << {
+        item: coupon[:item].upcase + " W/COUPON",
+        price: coupon[:cost] / coupon[:num],
+        clearance: find_item_by_name_in_collection(coupon[:item], cart)[:clearance],
+        count: coupon[:num]
     }
+    end
   end
   cart
 end
@@ -46,7 +48,6 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   binding.pry
-  cart =
   final_cart = apply_clearance(apply_coupons(consolidate_cart(cart), coupons))
   grand_total = 0.0
   final_cart.each do |item|
