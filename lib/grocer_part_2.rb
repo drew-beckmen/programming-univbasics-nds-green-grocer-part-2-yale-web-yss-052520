@@ -1,6 +1,9 @@
 require_relative './part_1_solution.rb'
 require 'pry'
 
+#Helper method takes in an array of hashes (cart) and a value
+# corresponding to the item key and deletes the hash with the
+# value item. 
 def delete_item(item, cart)
   cart.length.times do |index|
     if cart[index][:item] == item
