@@ -50,6 +50,6 @@ def checkout(cart, coupons)
   grand_total = 0.0
   final_cart.each do |item|
     grand_total += 
-  end 
-  
+  end
+
 end
