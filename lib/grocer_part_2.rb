@@ -6,7 +6,9 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
   coupons.each do |coupon|
-    find_item_by_name_in_collection(coupon[:item], cart)[:count] -= coupon[:num]
+    find_item_by_name_in_collection(coupon[:item], cart)[:count] == coupon[:num] 
+      ?  find_item_by_name_in_collection(coupon[:item], cart)[:count] = 0 : 
+        find_item_by_name_in_collection(coupon[:item], cart)[:count] -= coupon[:num]
     binding.pry
     cart << {
       item: coupon[:item].upcase + " W/COUPON",
