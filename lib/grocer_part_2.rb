@@ -20,7 +20,6 @@ def apply_coupons(cart, coupons)
       clearance: true,
       count: coupon[:num],
     }
-    binding.pry
   end
 end
 
