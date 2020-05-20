@@ -16,7 +16,7 @@ def apply_coupons(cart, coupons)
     cart << {
       item: coupon[:item].upcase + " W/COUPON",
       price: coupon[:cost] / coupon[:num],
-      clearance: true,
+      clearance: find_item_by_name_in_collection(coupon[:item], cart)[:clearance],
       count: coupon[:num]
     }
   end
