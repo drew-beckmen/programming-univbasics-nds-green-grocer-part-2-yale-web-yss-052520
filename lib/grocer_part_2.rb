@@ -17,7 +17,7 @@ def apply_coupons(cart, coupons)
       item: coupon[:item].upcase + " W/COUPON",
       price: coupon[:cost] / coupon[:num],
       clearance: true,
-      count: coupon[:num],
+      count: coupon[:num]
     }
   end
   binding.pry
